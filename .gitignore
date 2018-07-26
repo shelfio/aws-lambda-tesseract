@@ -1,0 +1,6 @@
+.idea/
+node_modules/
+*.log
+.DS_Store
+yarn.lock
+*.tar.gz
