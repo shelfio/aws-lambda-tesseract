@@ -20,7 +20,6 @@ When a Lambda starts, it unpacks an archive with a binary to the `/tmp` folder a
 
 ```js
 const {getTextFromImage} = require('@shelf/aws-lambda-tesseract');
-const {execSync} = require('child_process');
 
 module.exports.handler = async event => {
   // assuming there is a photo.jpg inside /tmp dir
