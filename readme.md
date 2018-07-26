@@ -7,7 +7,7 @@ Inspired by [chrome-aws-lambda](https://github.com/alixaxel/chrome-aws-lambda) &
 ## Install
 
 ```
-$ yarn add aws-lambda-tesseract
+$ yarn add @shelf/aws-lambda-tesseract
 ```
 
 ## How does it work?
@@ -21,7 +21,7 @@ You can import a path to the Tesseract binary and spawn a child process to do th
 ## Usage
 
 ```js
-const {getExecutablePath} = require('aws-lambda-tesseract');
+const {getExecutablePath} = require('@shelf/aws-lambda-tesseract');
 const {execSync} = require('child_process');
 const ttBinary = await getExecutablePath();
 
