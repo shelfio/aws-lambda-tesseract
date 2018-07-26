@@ -13,7 +13,7 @@ module.exports.getExecutablePath = function() {
 
     if (fs.existsSync(output) === true) {
       return resolve(
-        `cd /tmp/tesseract && LD_LIBRARY_PATH=./lib TESSDATA_PREFIX=./tessdata ${output}`
+        `cd /tmp && LD_LIBRARY_PATH=/tmp/tesseract/lib TESSDATA_PREFIX=/tmp/tesseract/tessdata ${output}`
       );
     }
 
@@ -40,7 +40,15 @@ module.exports.getExecutablePath = function() {
           return reject(error);
         }
 
-        return resolve(output);
+        if (fs.existsSync('/tmp/tesseract/libs/libtesseract.so.4')) {
+          return resolve(output);
+        }
+
+        // TODO investigate occasional "cannot open shared object file: No such file or directory"
+        // but it exists on the 2nd lambda call
+        setTimeout(function() {
+          return resolve(output);
+        }, 200);
       });
     });
 
