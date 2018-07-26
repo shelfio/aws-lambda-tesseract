@@ -1,6 +1,6 @@
 {
   "name": "@shelf/aws-lambda-tesseract",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "11 MB Tesseract (with English training data) to fit inside AWS Lambda compressed with Brotli",
   "license": "MIT",
   "repository": "shelfio/aws-lambda-tesseract",
