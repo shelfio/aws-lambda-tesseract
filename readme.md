@@ -23,16 +23,17 @@ You can import a path to the Tesseract binary and spawn a child process to do th
 ```js
 const {getExecutablePath} = require('@shelf/aws-lambda-tesseract');
 const {execSync} = require('child_process');
-const ttBinary = await getExecutablePath();
 
-module.exports.handler = (event) => {
+module.exports.handler = async event => {
+  const ttBinary = await getExecutablePath();
+
   // assuming there is a photo.jpg inside /tmp dir
 
   const stdout = execSync(`${ttBinary} /tmp/photo.jpg ${defaultArgs.join(' ')}`);
   execSync(`rm /tmp/photo.jpg`);
 
   return stdout.toString();
-}
+};
 ```
 
 ## Compile It Yourself
