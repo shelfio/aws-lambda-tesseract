@@ -20,7 +20,12 @@
     "bin"
   ],
   "main": "src/index.js",
-  "keywords": [],
+  "keywords": [
+    "lambda",
+    "ocr",
+    "tesseract",
+    "brotli"
+  ],
   "dependencies": {
     "tar-fs": "^1.16.2"
   },
