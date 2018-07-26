@@ -10,6 +10,14 @@ Inspired by [chrome-aws-lambda](https://github.com/alixaxel/chrome-aws-lambda) &
 $ yarn add aws-lambda-tesseract
 ```
 
+## How does it work?
+
+This package contains an archive with [Tesseract 4.0 beta](https://github.com/tesseract-ocr/tesseract) compiled for usage in AWS Lambda environment.
+
+When Lambda starts, it unpacks an archive with a binary to the `/tmp` folder and makes sure it's done only once per Lambda cold start.
+
+You can import a path to the Tesseract binary and spawn a child process to do the OCR magic ✨
+
 ## Usage
 
 ```js
