@@ -1,4 +1,4 @@
-# aws-lambda-tesseract ![](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
+# aws-lambda-tesseract ![](https://img.shields.io/badge/code_style-prettier-ff69b4.svg) [![Tesseract](https://img.shields.io/badge/tesserract-11_MB-brightgreen.svg)](bin/)
 
 > 11 MB Tesseract (with English training data) to fit inside AWS Lambda compressed with Brotli
 
@@ -37,8 +37,8 @@ module.exports.handler = (event) => {
 
 ## See Also
 
-- [aws-lambda-libreoffice](https://github.com/vladgolubev/aws-lambda-libreoffice)
-- [chrome-aws-lambda](https://github.com/alixaxel/chrome-aws-lambda)
+* [aws-lambda-libreoffice](https://github.com/vladgolubev/aws-lambda-libreoffice)
+* [chrome-aws-lambda](https://github.com/alixaxel/chrome-aws-lambda)
 
 ## License
 
