@@ -1,9 +1,7 @@
+const {execFileSync, execSync} = require('child_process');
 const fs = require('fs');
 const path = require('path');
 const tar = require('tar-fs');
-const defaultArgs = require('./args');
-
-module.exports.defaultArgs = defaultArgs;
 
 // see https://github.com/alixaxel/chrome-aws-lambda
 module.exports.getExecutablePath = function() {
@@ -12,9 +10,7 @@ module.exports.getExecutablePath = function() {
     let output = '/tmp/tesseract/tesseract';
 
     if (fs.existsSync(output) === true) {
-      return resolve(
-        `cd /tmp && LD_LIBRARY_PATH=/tmp/tesseract/lib TESSDATA_PREFIX=/tmp/tesseract/tessdata ${output}`
-      );
+      return resolve(output);
     }
 
     for (let file of fs.readdirSync(input)) {
@@ -40,18 +36,26 @@ module.exports.getExecutablePath = function() {
           return reject(error);
         }
 
-        if (fs.existsSync('/tmp/tesseract/libs/libtesseract.so.4')) {
-          return resolve(output);
-        }
-
-        // TODO investigate occasional "cannot open shared object file: No such file or directory"
-        // but it exists on the 2nd lambda call
-        setTimeout(function() {
-          return resolve(output);
-        }, 200);
+        return resolve(output);
       });
     });
 
     source.pipe(require(`${__dirname}/iltorb`).decompressStream()).pipe(target);
   });
+};
+
+module.exports.getTextFromImage = async function(filePath) {
+  const ttBinary = await module.exports.getExecutablePath();
+
+  const stdout = execFileSync(ttBinary, [filePath, 'stdout', '-l', 'eng'], {
+    cwd: '/tmp/tesseract',
+    env: {
+      LD_LIBRARY_PATH: './lib',
+      TESSDATA_PREFIX: './tessdata'
+    }
+  });
+
+  execSync(`rm ${filePath}`);
+
+  return stdout.toString();
 };

@@ -14,25 +14,19 @@ $ yarn add @shelf/aws-lambda-tesseract
 
 This package contains an archive with [Tesseract 4.0 beta](https://github.com/tesseract-ocr/tesseract) compiled for usage in AWS Lambda environment.
 
-When Lambda starts, it unpacks an archive with a binary to the `/tmp` folder and makes sure it's done only once per Lambda cold start.
-
-You can import a path to the Tesseract binary and spawn a child process to do the OCR magic ✨
+When a Lambda starts, it unpacks an archive with a binary to the `/tmp` folder and makes sure it's done only once per Lambda cold start.
 
 ## Usage
 
 ```js
-const {getExecutablePath} = require('@shelf/aws-lambda-tesseract');
+const {getTextFromImage} = require('@shelf/aws-lambda-tesseract');
 const {execSync} = require('child_process');
 
 module.exports.handler = async event => {
-  const ttBinary = await getExecutablePath();
-
   // assuming there is a photo.jpg inside /tmp dir
+  // original file will be deleted afterwards
 
-  const stdout = execSync(`${ttBinary} /tmp/photo.jpg ${defaultArgs.join(' ')}`);
-  execSync(`rm /tmp/photo.jpg`);
-
-  return stdout.toString();
+  return getTextFromImage('/tmp/photo.jpg');
 };
 ```
 
@@ -42,8 +36,8 @@ See [compile-tesseract.sh](compile-tesseract.sh) & [compress-with-brotli.sh](com
 
 ## See Also
 
-* [aws-lambda-libreoffice](https://github.com/vladgolubev/aws-lambda-libreoffice)
-* [chrome-aws-lambda](https://github.com/alixaxel/chrome-aws-lambda)
+- [aws-lambda-libreoffice](https://github.com/vladgolubev/aws-lambda-libreoffice)
+- [chrome-aws-lambda](https://github.com/alixaxel/chrome-aws-lambda)
 
 ## License
 
