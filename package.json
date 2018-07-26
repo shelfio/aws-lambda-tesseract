@@ -1,0 +1,52 @@
+{
+  "name": "@shelf/aws-lambda-tesseract",
+  "version": "0.0.1",
+  "description": "11 MB Tesseract (with English training data) to fit inside AWS Lambda compressed with Brotli",
+  "license": "MIT",
+  "repository": "shelfio/aws-lambda-tesseract",
+  "author": {
+    "name": "Vlad Holubiev",
+    "email": "vlad@shelf.io",
+    "url": "shelf.io"
+  },
+  "engines": {
+    "node": ">=8.10"
+  },
+  "scripts": {
+    "lint": "eslint . --fix"
+  },
+  "files": [
+    "src",
+    "bin"
+  ],
+  "main": "src/index.js",
+  "keywords": [],
+  "dependencies": {
+    "tar-fs": "^1.16.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.15.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.5.0",
+    "husky": "^0.15.0-beta.16",
+    "lint-staged": "^7.1.1",
+    "prettier": "^1.9.2"
+  },
+  "optionalDependencies": {
+    "iltorb": "^2.2.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
