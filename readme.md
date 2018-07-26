@@ -35,6 +35,10 @@ module.exports.handler = (event) => {
 }
 ```
 
+## Compile It Yourself
+
+See [compile-tesseract.sh](compile-tesseract.sh) & [compress-with-brotli.sh](compress-with-brotli.sh) files
+
 ## See Also
 
 * [aws-lambda-libreoffice](https://github.com/vladgolubev/aws-lambda-libreoffice)
