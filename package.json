@@ -27,6 +27,7 @@
     "brotli"
   ],
   "dependencies": {
+    "is-image": "2.0.0",
     "tar-fs": "^1.16.2"
   },
   "devDependencies": {

@@ -2,6 +2,9 @@ const {execFileSync, execSync} = require('child_process');
 const fs = require('fs');
 const path = require('path');
 const tar = require('tar-fs');
+const isImage = require('is-image');
+
+const unsupportedExtensions = new Set(['gif', 'psd', 'eps', 'svg']);
 
 // see https://github.com/alixaxel/chrome-aws-lambda
 module.exports.getExecutablePath = function() {
@@ -59,3 +62,21 @@ module.exports.getTextFromImage = async function(filePath) {
 
   return stdout.toString();
 };
+
+module.exports.isSupportedFile = function(filePath) {
+  // Reject all non-image files for OCR
+  if (!isImage(filePath)) {
+    return false;
+  }
+
+  return !isUnsupportedFileExtension(filePath);
+};
+
+function isUnsupportedFileExtension(filePath) {
+  const ext = path
+    .extname(filePath)
+    .slice(1)
+    .toLowerCase();
+
+  return unsupportedExtensions.has(ext);
+}
