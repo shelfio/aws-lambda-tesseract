@@ -19,15 +19,22 @@ When a Lambda starts, it unpacks an archive with a binary to the `/tmp` folder a
 ## Usage
 
 ```js
-const {getTextFromImage} = require('@shelf/aws-lambda-tesseract');
+const {getTextFromImage, isSupportedFile} = require('@shelf/aws-lambda-tesseract');
 
 module.exports.handler = async event => {
   // assuming there is a photo.jpg inside /tmp dir
   // original file will be deleted afterwards
 
+  if (!isSupportedFile('/tmp/photo.jpg')) {
+    return false;
+  }
+
   return getTextFromImage('/tmp/photo.jpg');
 };
 ```
+
+`isSupportedFile` checks that file has image-like file extension and it's not in the list of
+unsupported by Tesseract file extensions.
 
 ## Compile It Yourself
 
