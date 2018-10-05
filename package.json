@@ -13,7 +13,8 @@
     "node": ">=8.10"
   },
   "scripts": {
-    "lint": "eslint . --fix"
+    "lint": "eslint . --fix",
+    "test": "TZ=UTC jest src"
   },
   "files": [
     "src",
@@ -35,6 +36,7 @@
     "eslint-config-prettier": "3.1.0",
     "eslint-plugin-prettier": "3.0.0",
     "husky": "1.1.0",
+    "jest": "23.6.0",
     "lint-staged": "7.3.0",
     "prettier": "1.14.3"
   },
