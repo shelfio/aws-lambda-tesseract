@@ -17,6 +17,7 @@ describe('#isSupportedFile', () => {
     ${'/tmp/file.gif'}  | ${false}
     ${'/tmp/file.psd'}  | ${false}
     ${'/tmp/file.eps'}  | ${false}
+    ${'/tmp/file.ai'}   | ${false}
   `('should return $expected for file $filePath', ({filePath, expected}) => {
     expect(isSupportedFile(filePath)).toEqual(expected);
   });
