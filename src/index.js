@@ -4,7 +4,7 @@ const path = require('path');
 const tar = require('tar-fs');
 const isImage = require('is-image');
 
-const unsupportedExtensions = new Set(['ai', 'gif', 'psd', 'eps', 'svg']);
+const unsupportedExtensions = new Set(['ai', 'emf', 'eps', 'gif', 'psd', 'svg']);
 
 // see https://github.com/alixaxel/chrome-aws-lambda
 module.exports.getExecutablePath = function() {
