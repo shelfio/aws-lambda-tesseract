@@ -16,6 +16,7 @@ describe('#isSupportedFile', () => {
     ${'/tmp/file.svg'}  | ${false}
     ${'/tmp/file.gif'}  | ${false}
     ${'/tmp/file.psd'}  | ${false}
+    ${'/tmp/file.ico'}  | ${false}
     ${'/tmp/file.eps'}  | ${false}
     ${'/tmp/file.ai'}   | ${false}
   `('should return $expected for file $filePath', ({filePath, expected}) => {

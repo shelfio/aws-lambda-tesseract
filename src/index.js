@@ -3,7 +3,7 @@ const {execFileSync, execSync} = require('child_process');
 const path = require('path');
 const isImage = require('is-image');
 
-const unsupportedExtensions = new Set(['ai', 'emf', 'eps', 'gif', 'psd', 'svg']);
+const unsupportedExtensions = new Set(['ai', 'emf', 'eps', 'gif', 'ico', 'psd', 'svg']);
 const inputPath = path.join(__dirname, '..', 'bin', 'tt.tar.br');
 const outputPath = '/tmp/tesseract/tesseract';
 
