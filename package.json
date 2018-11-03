@@ -28,8 +28,8 @@
     "brotli"
   ],
   "dependencies": {
-    "is-image": "2.0.0",
-    "tar-fs": "^1.16.2"
+    "@shelf/aws-lambda-brotli-unpacker": "0.0.1",
+    "is-image": "2.0.0"
   },
   "devDependencies": {
     "eslint": "5.8.0",
@@ -39,9 +39,6 @@
     "jest": "23.6.0",
     "lint-staged": "8.0.4",
     "prettier": "1.14.3"
-  },
-  "optionalDependencies": {
-    "iltorb": "^2.2.0"
   },
   "husky": {
     "hooks": {

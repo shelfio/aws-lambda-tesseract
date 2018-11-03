@@ -1,54 +1,18 @@
+const {unpack} = require('@shelf/aws-lambda-brotli-unpacker');
 const {execFileSync, execSync} = require('child_process');
-const fs = require('fs');
 const path = require('path');
-const tar = require('tar-fs');
 const isImage = require('is-image');
 
 const unsupportedExtensions = new Set(['ai', 'emf', 'eps', 'gif', 'psd', 'svg']);
+const inputPath = path.join(__dirname, '..', 'bin', 'tt.tar.br');
+const outputPath = '/tmp/tesseract/tesseract';
 
-// see https://github.com/alixaxel/chrome-aws-lambda
-module.exports.getExecutablePath = function() {
-  return new Promise((resolve, reject) => {
-    let input = path.join(__dirname, '..', 'bin');
-    let output = '/tmp/tesseract/tesseract';
-
-    if (fs.existsSync(output) === true) {
-      return resolve(output);
-    }
-
-    for (let file of fs.readdirSync(input)) {
-      if (file.endsWith('.br') === true) {
-        input = path.join(input, file);
-      }
-    }
-
-    const source = fs.createReadStream(input);
-    const target = tar.extract('/tmp');
-
-    source.on('error', error => {
-      return reject(error);
-    });
-
-    target.on('error', error => {
-      return reject(error);
-    });
-
-    target.on('finish', () => {
-      fs.chmod(output, '0755', error => {
-        if (error) {
-          return reject(error);
-        }
-
-        return resolve(output);
-      });
-    });
-
-    source.pipe(require(`${__dirname}/iltorb`).decompressStream()).pipe(target);
-  });
+module.exports.getExecutablePath = async function() {
+  return unpack({inputPath, outputPath});
 };
 
 module.exports.getTextFromImage = async function(filePath) {
-  const ttBinary = await module.exports.getExecutablePath();
+  const ttBinary = await unpack({inputPath, outputPath});
 
   const stdout = execFileSync(ttBinary, [filePath, 'stdout', '-l', 'eng'], {
     cwd: '/tmp/tesseract',
