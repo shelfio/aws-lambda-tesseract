@@ -42,7 +42,7 @@ See [compile-tesseract.sh](compile-tesseract.sh) & [compress-with-brotli.sh](com
 
 ## See Also
 
-- [aws-lambda-libreoffice](https://github.com/vladgolubev/aws-lambda-libreoffice)
+- [aws-lambda-libreoffice](https://github.com/shelfio/aws-lambda-libreoffice)
 - [aws-lambda-brotli-unpacker](https://github.com/shelfio/aws-lambda-brotli-unpacker)
 - [chrome-aws-lambda](https://github.com/alixaxel/chrome-aws-lambda)
 
