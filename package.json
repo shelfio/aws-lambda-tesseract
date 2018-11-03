@@ -28,7 +28,7 @@
     "brotli"
   ],
   "dependencies": {
-    "@shelf/aws-lambda-brotli-unpacker": "0.0.1",
+    "@shelf/aws-lambda-brotli-unpacker": "0.0.2",
     "is-image": "2.0.0"
   },
   "devDependencies": {
