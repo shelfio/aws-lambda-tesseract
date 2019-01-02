@@ -38,7 +38,15 @@ unsupported by Tesseract file extensions.
 
 ## Compile It Yourself
 
-See [compile-tesseract.sh](compile-tesseract.sh) & [compress-with-brotli.sh](compress-with-brotli.sh) files
+Compile Tesseract for deployment on Lambda. Requires [Docker](https://www.docker.com/) & [Make](https://www.gnu.org/software/make/manual/html_node/Introduction.html) to be installed.
+
+`$ make build`: Builds Docker image, compiles Tesseract 4.0.0, and compresses result into the `tt.tar.br` archive.
+
+`$ make build-tesseract`: Compiles Tesseract 4.0.0 and creates `tesseract.tar.gz` file as output.
+
+`$ make compress-tesseract`: Runs brotli compression on built Tesseract and compresses `tesseract.tar.gz` into `tt.tar.bz`.
+
+**Note:** After compiling and compressing you need to copy the latest `tt.tar.bz` into the `/bin` directory. `$ cp ./build/tt.tar.bz ./bin`
 
 ## See Also
 
