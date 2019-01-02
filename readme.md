@@ -18,18 +18,50 @@ When a Lambda starts, it unpacks an archive with a binary to the `/tmp` folder a
 
 ## Usage
 
+#### Using a path
+
 ```js
 const {getTextFromImage, isSupportedFile} = require('@shelf/aws-lambda-tesseract');
 
 module.exports.handler = async event => {
   // assuming there is a photo.jpg inside /tmp dir
-  // original file will be deleted afterwards
-
   if (!isSupportedFile('/tmp/photo.jpg')) {
     return false;
   }
 
-  return getTextFromImage('/tmp/photo.jpg');
+  getTextFromImage('/tmp/photo.jpg').then(result => console.log(result));
+};
+```
+
+#### Using a stream
+
+```js
+const {getTextFromImage, isSupportedFile} = require('@shelf/aws-lambda-tesseract');
+
+module.exports.handler = async event => {
+  // assuming that photo.jpg exists and is readable.
+  const file = fs.createReadStream(__dirname + '/photo.jpg');
+
+  if (!isSupportedFile('photo.jpg')) {
+    return false;
+  }
+
+  getTextFromImage(file).then(result => console.log(result));
+};
+```
+
+#### Extracting words and their coordinates
+
+The `getWordsAndBounds` function returns a JSON object of extracted words and their coordinates on the page.
+
+```js
+const {getWordsAndBounds} = require('@shelf/aws-lambda-tesseract');
+
+module.exports.handler = async event => {
+  // assuming that photo.jpg exists and is readable.
+  const file = fs.createReadStream(__dirname + '/photo.jpg');
+
+  getWordsAndBounds(file).then(result => console.log(result));
 };
 ```
 
