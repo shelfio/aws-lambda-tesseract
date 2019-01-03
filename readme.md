@@ -35,18 +35,17 @@ module.exports.handler = async event => {
 
 #### Using a stream
 
+This is useful for when you want to stream the file data from a remote source like a URL.
+
 ```js
+const https = require('https');
 const {getTextFromImage, isSupportedFile} = require('@shelf/aws-lambda-tesseract');
 
 module.exports.handler = async event => {
-  // assuming that photo.jpg exists and is readable.
-  const file = fs.createReadStream(__dirname + '/photo.jpg');
-
-  if (!isSupportedFile('photo.jpg')) {
-    return false;
-  }
-
-  getTextFromImage(file).then(result => console.log(result));
+  // assuming that the url exists and is readable.
+  const url = 'https://d.pr/i/9X4IIL.png';
+  const fileStream = await new Promise(resolve => https.get(url, resolve));
+  getTextFromImage(fileStream).then(result => console.log(result));
 };
 ```
 
