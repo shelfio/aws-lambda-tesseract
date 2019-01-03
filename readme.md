@@ -43,7 +43,7 @@ const {getTextFromImage, isSupportedFile} = require('@shelf/aws-lambda-tesseract
 
 module.exports.handler = async event => {
   // assuming that the url exists and is readable.
-  const url = 'https://d.pr/i/9X4IIL.png';
+  const url = 'https://cdn-std.dprcdn.net/files/acc_55602/9X4IIL';
   const fileStream = await new Promise(resolve => https.get(url, resolve));
   getTextFromImage(fileStream).then(result => console.log(result));
 };
