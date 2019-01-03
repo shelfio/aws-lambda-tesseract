@@ -29,6 +29,7 @@
   ],
   "dependencies": {
     "@shelf/aws-lambda-brotli-unpacker": "0.0.2",
+    "csv-parse": "^4.3.0",
     "is-image": "2.0.0"
   },
   "devDependencies": {
