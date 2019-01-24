@@ -1,4 +1,4 @@
-# aws-lambda-tesseract ![](https://img.shields.io/badge/code_style-prettier-ff69b4.svg) [![Tesseract](https://img.shields.io/badge/tesserract-11_MB-brightgreen.svg)](bin/)
+# aws-lambda-tesseract [![CircleCI](https://circleci.com/gh/shelfio/aws-lambda-tesseract/tree/master.svg?style=svg)](https://circleci.com/gh/shelfio/aws-lambda-tesseract/tree/master) ![](https://img.shields.io/badge/code_style-prettier-ff69b4.svg) [![Tesseract](https://img.shields.io/badge/tesserract-11_MB-brightgreen.svg)](bin/)
 
 > 11 MB Tesseract (with English training data) to fit inside AWS Lambda compressed with Brotli
 
