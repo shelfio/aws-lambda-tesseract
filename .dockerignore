@@ -1,0 +1,11 @@
+*.swo
+*.swp
+.git
+.DS_Store
+node_modules
+bin
+build
+scripts
+coverage
+.nyc_output
+.

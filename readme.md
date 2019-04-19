@@ -18,18 +18,49 @@ When a Lambda starts, it unpacks an archive with a binary to the `/tmp` folder a
 
 ## Usage
 
+#### Using a path
+
 ```js
 const {getTextFromImage, isSupportedFile} = require('@shelf/aws-lambda-tesseract');
 
 module.exports.handler = async event => {
   // assuming there is a photo.jpg inside /tmp dir
-  // original file will be deleted afterwards
-
   if (!isSupportedFile('/tmp/photo.jpg')) {
     return false;
   }
 
-  return getTextFromImage('/tmp/photo.jpg');
+  getTextFromImage('/tmp/photo.jpg').then(result => console.log(result));
+};
+```
+
+#### Using a stream
+
+This is useful for when you want to stream the file data from a remote source like a URL.
+
+```js
+const https = require('https');
+const {getTextFromImage, isSupportedFile} = require('@shelf/aws-lambda-tesseract');
+
+module.exports.handler = async event => {
+  // assuming that the url exists and is readable.
+  const url = 'https://cdn-std.dprcdn.net/files/acc_55602/9X4IIL';
+  const fileStream = await new Promise(resolve => https.get(url, resolve));
+  getTextFromImage(fileStream).then(result => console.log(result));
+};
+```
+
+#### Extracting words and their coordinates
+
+The `getWordsAndBounds` function returns a JSON object of extracted words and their coordinates on the page.
+
+```js
+const {getWordsAndBounds} = require('@shelf/aws-lambda-tesseract');
+
+module.exports.handler = async event => {
+  // assuming that photo.jpg exists and is readable.
+  const file = fs.createReadStream(__dirname + '/photo.jpg');
+
+  getWordsAndBounds(file).then(result => console.log(result));
 };
 ```
 
@@ -38,7 +69,15 @@ unsupported by Tesseract file extensions.
 
 ## Compile It Yourself
 
-See [compile-tesseract.sh](compile-tesseract.sh) & [compress-with-brotli.sh](compress-with-brotli.sh) files
+Compile Tesseract for deployment on Lambda. Requires [Docker](https://www.docker.com/) & [Make](https://www.gnu.org/software/make/manual/html_node/Introduction.html) to be installed.
+
+`$ make build`: Builds Docker image, compiles Tesseract 4.0.0, and compresses result into the `tt.tar.br` archive.
+
+`$ make build-tesseract`: Compiles Tesseract 4.0.0 and creates `tesseract.tar.gz` file as output.
+
+`$ make compress-tesseract`: Runs brotli compression on built Tesseract and compresses `tesseract.tar.gz` into `tt.tar.bz`.
+
+**Note:** After compiling and compressing you need to copy the latest `tt.tar.bz` into the `/bin` directory. `$ cp ./build/tt.tar.bz ./bin`
 
 ## See Also
 
