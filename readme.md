@@ -40,6 +40,8 @@ unsupported by Tesseract file extensions.
 
 See [compile-tesseract.sh](compile-tesseract.sh) & [compress-with-brotli.sh](compress-with-brotli.sh) files
 
+Smoke test that it works by running `test.sh` script
+
 ## See Also
 
 - [aws-lambda-libreoffice](https://github.com/shelfio/aws-lambda-libreoffice)
