@@ -1,21 +1,23 @@
-const {unpack} = require('@shelf/aws-lambda-brotli-unpacker');
+const {extract} = require('tar');
 const {execFileSync, execSync} = require('child_process');
 const path = require('path');
 const isImage = require('is-image');
 
 const unsupportedExtensions = new Set(['ai', 'emf', 'eps', 'gif', 'ico', 'psd', 'svg']);
-const inputPath = path.join(__dirname, '..', 'bin', 'tt.tar.br');
-const outputPath = '/tmp/tesseract/tesseract';
+const inputPath = path.join(__dirname, '..', 'bin', 'tt.tar.gz');
+const outputPath = '/tmp/tesseract-standalone/tesseract';
 
 module.exports.getExecutablePath = async function() {
-  return unpack({inputPath, outputPath});
+  await extract({file: inputPath, cwd: '/tmp'});
+
+  return outputPath;
 };
 
 module.exports.getTextFromImage = async function(filePath) {
-  const ttBinary = await unpack({inputPath, outputPath});
+  await extract({file: inputPath, cwd: '/tmp'});
 
-  const stdout = execFileSync(ttBinary, [filePath, 'stdout', '-l', 'eng'], {
-    cwd: '/tmp/tesseract',
+  const stdout = execFileSync(outputPath, [filePath, 'stdout', '-l', 'eng'], {
+    cwd: '/tmp/tesseract-standalone',
     env: {
       LD_LIBRARY_PATH: './lib',
       TESSDATA_PREFIX: './tessdata'

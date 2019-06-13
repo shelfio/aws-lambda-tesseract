@@ -1,7 +1,7 @@
 {
   "name": "@shelf/aws-lambda-tesseract",
   "version": "1.3.2",
-  "description": "11 MB Tesseract (with English training data) to fit inside AWS Lambda compressed with Brotli",
+  "description": "6 MB Tesseract (with English training data) to fit inside AWS Lambda",
   "license": "MIT",
   "repository": "shelfio/aws-lambda-tesseract",
   "author": {
@@ -10,7 +10,7 @@
     "url": "shelf.io"
   },
   "engines": {
-    "node": ">=8.10"
+    "node": ">=10"
   },
   "scripts": {
     "lint": "eslint . --fix",
@@ -24,12 +24,11 @@
   "keywords": [
     "lambda",
     "ocr",
-    "tesseract",
-    "brotli"
+    "tesseract"
   ],
   "dependencies": {
-    "@shelf/aws-lambda-brotli-unpacker": "0.0.2",
-    "is-image": "3.0.0"
+    "is-image": "3.0.0",
+    "tar": "4.4.10"
   },
   "devDependencies": {
     "@shelf/eslint-config": "0.3.5",
