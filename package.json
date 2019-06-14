@@ -18,7 +18,7 @@
   },
   "files": [
     "src",
-    "bin"
+    "bin/tt.tar.gz"
   ],
   "main": "src/index.js",
   "keywords": [
