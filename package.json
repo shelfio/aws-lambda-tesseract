@@ -28,7 +28,7 @@
   ],
   "dependencies": {
     "is-image": "3.0.0",
-    "tar": "4.4.10"
+    "tar": "4.4.13"
   },
   "devDependencies": {
     "@shelf/eslint-config": "0.7.0",
