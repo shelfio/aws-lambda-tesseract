@@ -22,7 +22,7 @@ make install
 cd ~
 git clone https://github.com/tesseract-ocr/tesseract.git
 cd tesseract
-git checkout 4.0.0
+git checkout 4.1.0
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 ./autogen.sh
 ./configure

@@ -1,6 +1,6 @@
 # aws-lambda-tesseract [![CircleCI](https://circleci.com/gh/shelfio/aws-lambda-tesseract/tree/master.svg?style=svg)](https://circleci.com/gh/shelfio/aws-lambda-tesseract/tree/master) ![](https://img.shields.io/badge/code_style-prettier-ff69b4.svg) [![Tesseract](https://img.shields.io/badge/tesserract-6_MB-brightgreen.svg)](bin/)
 
-> 6 MB Tesseract (with English training data) to fit inside AWS Lambda
+> 6 MB Tesseract 4.1 (with English training data) to fit inside AWS Lambda
 
 Inspired by [chrome-aws-lambda](https://github.com/alixaxel/chrome-aws-lambda) & [lambda-scanner-ocr](https://github.com/philippkeller/lambda-scanner-ocr)
 
@@ -16,7 +16,7 @@ $ yarn add @shelf/aws-lambda-tesseract
 
 ## How does it work?
 
-This package contains an archive with [Tesseract 4.0](https://github.com/tesseract-ocr/tesseract) compiled for usage in AWS Lambda environment.
+This package contains an archive with [Tesseract 4.1](https://github.com/tesseract-ocr/tesseract) compiled for usage in AWS Lambda environment.
 
 When a Lambda starts, it unpacks an archive with a binary to the `/tmp` folder and makes sure it's done only once per Lambda cold start.
 
