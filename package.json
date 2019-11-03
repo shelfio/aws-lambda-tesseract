@@ -28,14 +28,14 @@
   ],
   "dependencies": {
     "is-image": "3.0.0",
-    "tar": "4.4.10"
+    "tar": "4.4.13"
   },
   "devDependencies": {
-    "@shelf/eslint-config": "0.3.10",
-    "eslint": "6.0.1",
-    "husky": "3.0.0",
-    "jest": "24.8.0",
-    "lint-staged": "9.2.0",
+    "@shelf/eslint-config": "0.8.5",
+    "eslint": "6.6.0",
+    "husky": "3.0.9",
+    "jest": "24.9.0",
+    "lint-staged": "9.4.2",
     "prettier": "1.18.2"
   },
   "husky": {
