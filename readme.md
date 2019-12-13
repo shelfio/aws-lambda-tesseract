@@ -14,6 +14,8 @@ $ yarn add @shelf/aws-lambda-tesseract
 
 `2.x` was compiled for Node 10.x runtime.
 
+`3.x` works for Node 12.x runtime.
+
 ## How does it work?
 
 This package contains an archive with [Tesseract 4.1](https://github.com/tesseract-ocr/tesseract) compiled for usage in AWS Lambda environment.
