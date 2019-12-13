@@ -1,5 +1,5 @@
 # Spin up and enter the docker container on your machine with the following command:
-# docker run -it lambci/lambda:build-nodejs10.x bash
+# docker run -it lambci/lambda:build-nodejs12.x bash
 
 
 # Then run the rest of the commands inside

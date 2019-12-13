@@ -10,7 +10,7 @@
     "url": "shelf.io"
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=12"
   },
   "scripts": {
     "lint": "eslint . --fix",
@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "@shelf/eslint-config": "0.12.1",
+    "@types/node": "12",
     "eslint": "6.7.2",
     "husky": "3.1.0",
     "jest": "24.9.0",

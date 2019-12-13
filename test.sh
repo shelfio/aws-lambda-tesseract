@@ -6,4 +6,4 @@ cd ..
 
 docker run --rm \
   -v "$PWD":/var/task \
-  lambci/lambda:nodejs10.x test.handler
+  lambci/lambda:nodejs12.x test.handler
