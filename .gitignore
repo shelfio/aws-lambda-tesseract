@@ -1,6 +1,8 @@
 .idea/
+bin/tesseract-standalone/
 node_modules/
+coverage/
+lib/
 *.log
 .DS_Store
 yarn.lock
-bin/tesseract-standalone/
