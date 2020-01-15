@@ -24,10 +24,10 @@
     "build:types": "tsc --emitDeclarationOnly --declaration --isolatedModules false --declarationDir lib"
   },
   "files": [
-    "src",
+    "lib",
     "bin/tt.tar.gz"
   ],
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "keywords": [
     "aws",
@@ -47,6 +47,7 @@
     "@shelf/eslint-config": "0.13.0",
     "@types/jest": "24.9.0",
     "@types/node": "12",
+    "@types/tar": "4.0.3",
     "eslint": "6.8.0",
     "husky": "4.0.9",
     "jest": "24.9.0",
