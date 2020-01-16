@@ -37,7 +37,7 @@
   ],
   "dependencies": {
     "is-image": "3.0.0",
-    "tar": "4.4.13"
+    "tar": "5.0.5"
   },
   "devDependencies": {
     "@babel/cli": "7.8.3",
