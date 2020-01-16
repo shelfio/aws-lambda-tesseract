@@ -1,4 +1,4 @@
-const {isSupportedFile} = require('./');
+import {isSupportedFile} from './';
 
 describe('#isSupportedFile', () => {
   it('should export isSupportedFile function', () => {

@@ -13,15 +13,24 @@
     "node": ">=12"
   },
   "scripts": {
-    "lint": "eslint . --fix",
-    "test": "TZ=UTC jest src"
+    "test": "TZ=UTC jest src",
+    "coverage": "jest --coverage",
+    "prepack": "yarn build",
+    "lint": "eslint . --ext .js,.ts,.json --fix --quiet",
+    "lint:ci": "eslint . --ext .js,.ts,.json --quiet",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
+    "build": "rm -rf lib/ && yarn build:types && babel src --out-dir lib --ignore '**/*.test.ts' --extensions '.ts'",
+    "build:types": "tsc --emitDeclarationOnly --declaration --isolatedModules false --declarationDir lib"
   },
   "files": [
-    "src",
+    "lib",
     "bin/tt.tar.gz"
   ],
-  "main": "src/index.js",
+  "main": "lib",
+  "types": "lib/index.d.ts",
   "keywords": [
+    "aws",
     "lambda",
     "ocr",
     "tesseract"
@@ -31,26 +40,34 @@
     "tar": "4.4.13"
   },
   "devDependencies": {
+    "@babel/cli": "7.8.3",
+    "@babel/core": "7.8.3",
+    "@babel/preset-env": "7.8.3",
+    "@babel/preset-typescript": "7.8.3",
     "@shelf/eslint-config": "0.13.0",
+    "@types/jest": "24.9.0",
     "@types/node": "12",
+    "@types/tar": "4.0.3",
     "eslint": "6.8.0",
     "husky": "4.0.10",
     "jest": "24.9.0",
     "lint-staged": "9.5.0",
-    "prettier": "1.19.1"
+    "prettier": "1.19.1",
+    "typescript": "3.7.4"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "post-commit": "git update-index --again"
     }
   },
   "lint-staged": {
-    "*.js": [
-      "eslint --fix",
+    "*.{html,json,md,yml}": [
+      "prettier --write --ignore-path=./.eslintignore",
       "git add"
     ],
-    "*.{html,json,md,yml}": [
-      "prettier --write",
+    "*.{ts,js}": [
+      "eslint --fix",
       "git add"
     ]
   },

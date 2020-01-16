@@ -1,19 +1,19 @@
-const {extract} = require('tar');
-const {execFileSync, execSync} = require('child_process');
-const path = require('path');
-const isImage = require('is-image');
+import {extract} from 'tar';
+import {execFileSync, execSync} from 'child_process';
+import path from 'path';
+import isImage from 'is-image';
 
 const unsupportedExtensions = new Set(['ai', 'emf', 'eps', 'gif', 'ico', 'psd', 'svg']);
 const inputPath = path.join(__dirname, '..', 'bin', 'tt.tar.gz');
 const outputPath = '/tmp/tesseract-standalone/tesseract';
 
-module.exports.getExecutablePath = async function() {
+export async function getExecutablePath(): Promise<string> {
   await extract({file: inputPath, cwd: '/tmp'});
 
   return outputPath;
-};
+}
 
-module.exports.getTextFromImage = async function(filePath) {
+export async function getTextFromImage(filePath: string): Promise<string> {
   await extract({file: inputPath, cwd: '/tmp'});
 
   const stdout = execFileSync(outputPath, [filePath, 'stdout', '-l', 'eng'], {
@@ -27,18 +27,18 @@ module.exports.getTextFromImage = async function(filePath) {
   execSync(`rm ${filePath}`);
 
   return stdout.toString();
-};
+}
 
-module.exports.isSupportedFile = function(filePath) {
+export function isSupportedFile(filePath: string): boolean {
   // Reject all non-image files for OCR
   if (!isImage(filePath)) {
     return false;
   }
 
   return !isUnsupportedFileExtension(filePath);
-};
+}
 
-function isUnsupportedFileExtension(filePath) {
+function isUnsupportedFileExtension(filePath: string): boolean {
   const ext = path
     .extname(filePath)
     .slice(1)
