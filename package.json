@@ -27,7 +27,7 @@
     "lib",
     "bin/tt.tar.gz"
   ],
-  "main": "lib/index.js",
+  "main": "lib",
   "types": "lib/index.d.ts",
   "keywords": [
     "aws",
