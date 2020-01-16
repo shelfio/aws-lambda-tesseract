@@ -6,3 +6,4 @@ lib/
 *.log
 .DS_Store
 yarn.lock
+test.js
