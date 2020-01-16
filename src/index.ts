@@ -29,7 +29,7 @@ export async function getTextFromImage(filePath: string): Promise<string> {
   return stdout.toString();
 }
 
-export function isSupportedFile(filePath): boolean {
+export function isSupportedFile(filePath: string): boolean {
   // Reject all non-image files for OCR
   if (!isImage(filePath)) {
     return false;
@@ -38,7 +38,7 @@ export function isSupportedFile(filePath): boolean {
   return !isUnsupportedFileExtension(filePath);
 }
 
-function isUnsupportedFileExtension(filePath): boolean {
+function isUnsupportedFileExtension(filePath: string): boolean {
   const ext = path
     .extname(filePath)
     .slice(1)
