@@ -3,15 +3,7 @@ import {execFileSync, execSync} from 'child_process';
 import path from 'path';
 import isImage from 'is-image';
 
-const unsupportedExtensions: Set<string> = new Set([
-  'ai',
-  'emf',
-  'eps',
-  'gif',
-  'ico',
-  'psd',
-  'svg'
-]);
+const unsupportedExtensions = new Set(['ai', 'emf', 'eps', 'gif', 'ico', 'psd', 'svg']);
 const inputPath = path.join(__dirname, '..', 'bin', 'tt.tar.gz');
 const outputPath = '/tmp/tesseract-standalone/tesseract';
 
