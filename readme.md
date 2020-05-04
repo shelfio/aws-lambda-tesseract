@@ -53,6 +53,15 @@ Smoke test that it works by running `test.sh` script
 - [aws-lambda-libreoffice](https://github.com/shelfio/aws-lambda-libreoffice)
 - [chrome-aws-lambda](https://github.com/alixaxel/chrome-aws-lambda)
 
+## Publish
+
+```sh
+$ git checkout master
+$ yarn version
+$ yarn publish
+$ git push origin master
+```
+
 ## License
 
 MIT © [Shelf](https://shelf.io)
