@@ -40,10 +40,10 @@
     "tar": "6.0.1"
   },
   "devDependencies": {
-    "@babel/cli": "7.10.3",
-    "@babel/core": "7.10.3",
-    "@babel/preset-env": "7.10.3",
-    "@babel/preset-typescript": "7.10.1",
+    "@babel/cli": "7.10.4",
+    "@babel/core": "7.10.4",
+    "@babel/preset-env": "7.10.4",
+    "@babel/preset-typescript": "7.10.4",
     "@shelf/eslint-config": "0.18.0",
     "@types/jest": "26.0.3",
     "@types/node": "12",
@@ -53,7 +53,7 @@
     "jest": "26.1.0",
     "lint-staged": "10.2.11",
     "prettier": "2.0.5",
-    "typescript": "3.9.5"
+    "typescript": "3.9.6"
   },
   "husky": {
     "hooks": {
