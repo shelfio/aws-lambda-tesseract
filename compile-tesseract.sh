@@ -1,5 +1,5 @@
 # Spin up and enter the docker container on your machine with the following command:
-# docker run -it --entrypoint /bin/bash public.ecr.aws/lambda/nodejs:16
+# docker run -it --entrypoint /bin/bash public.ecr.aws/lambda/nodejs:16-x86_64
 
 
 # Then run the rest of the commands inside
