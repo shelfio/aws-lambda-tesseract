@@ -16,7 +16,7 @@ $ yarn add @shelf/aws-lambda-tesseract
 
 `3.x` works for Node 12.x runtime.
 
-`4.x` works for Node 16.x runtime and compiled with **Tesseract 5.1.0**
+`4.x` works for Node 16.x runtime and compiled with **Tesseract 5.1.0**. It works with x86_64 CPUs for now only.
 
 ## How does it work?
 
