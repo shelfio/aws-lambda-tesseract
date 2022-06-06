@@ -1,5 +1,5 @@
 # Spin up and enter the docker container on your machine with the following command:
-# docker run -it lambci/lambda:build-nodejs12.x bash
+# docker run -it --entrypoint /bin/bash public.ecr.aws/lambda/nodejs:16
 
 
 # Then run the rest of the commands inside
@@ -13,6 +13,7 @@ yum install -y aclocal autoconf automake cmakegcc freetype-devel gcc gcc-c++ \
 cd ~
 git clone https://github.com/DanBloomberg/leptonica.git
 cd leptonica/
+git checkout 1.78.0 # newer version crashes tesseract build for now. See https://github.com/tesseract-ocr/tesseract/issues/3815
 ./autogen.sh
 ./configure
 make
@@ -22,7 +23,7 @@ make install
 cd ~
 git clone https://github.com/tesseract-ocr/tesseract.git
 cd tesseract
-git checkout 4.1.0
+git checkout 5.1.0
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 ./autogen.sh
 ./configure
@@ -36,7 +37,7 @@ mkdir tesseract-standalone
 cd tesseract-standalone
 cp /usr/local/bin/tesseract .
 mkdir lib
-cp /usr/local/lib/libtesseract.so.4 lib/
+cp /usr/local/lib/libtesseract.so.5 lib/
 cp /lib64/libpng15.so.15 lib/
 cp /lib64/libtiff.so.5 lib/
 cp /lib64/libgomp.so.1 lib/
@@ -49,7 +50,7 @@ cp /usr/lib64/libstdc++.so.6 lib/
 # copy training data
 mkdir tessdata
 cd tessdata
-curl -L https://github.com/tesseract-ocr/tessdata_fast/raw/master/eng.traineddata --output eng.traineddata
+curl -L https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/main/eng.traineddata --output eng.traineddata
 
 # archive
 cd ~
@@ -60,5 +61,6 @@ strip ./tesseract-standalone/**/*
 tar -zcvf tesseract.tar.gz tesseract-standalone
 
 # download from docker to local machine
-# 21c27dc1bf5d is docker container id, you can look it up by running "docker ps"
-docker cp 21c27dc1bf5d:/root/tesseract.tar.gz tt.tar.gz
+# 22e97e0774a0 is docker container id, you can look it up by running "docker ps"
+# run this outside of the docker container
+docker cp 22e97e0774a0:/root/tesseract.tar.gz tt.tar.gz
