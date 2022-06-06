@@ -49,26 +49,18 @@
     "@types/node": "12",
     "@types/tar": "4.0.3",
     "eslint": "7.7.0",
-    "husky": "4.2.5",
+    "husky": "8.0.1",
     "jest": "26.2.2",
     "lint-staged": "10.2.11",
     "prettier": "2.0.5",
     "typescript": "3.9.7"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "post-commit": "git update-index --again"
-    }
-  },
   "lint-staged": {
     "*.{html,json,md,yml}": [
-      "prettier --write --ignore-path=./.eslintignore",
-      "git add"
+      "prettier --write --ignore-path=./.eslintignore"
     ],
     "*.{ts,js}": [
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ]
   },
   "publishConfig": {

@@ -7,3 +7,4 @@ lib/
 .DS_Store
 yarn.lock
 test.js
+!.husky/_/husky.sh
