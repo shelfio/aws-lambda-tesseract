@@ -53,7 +53,8 @@ Smoke test that it works by running `test.sh` script
 ## See Also
 
 - [aws-lambda-libreoffice](https://github.com/shelfio/aws-lambda-libreoffice)
-- [chrome-aws-lambda](https://github.com/alixaxel/chrome-aws-lambda)
+- [chrome-aws-lambda-layer](https://github.com/shelfio/chrome-aws-lambda-layer)
+- [ghostscript-lambda-layer](https://github.com/shelfio/ghostscript-lambda-layer)
 
 ## Publish
 
