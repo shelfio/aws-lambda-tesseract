@@ -25,8 +25,8 @@
     "build": "rm -rf lib/ && yarn build:types && babel src --out-dir lib --ignore '**/*.test.ts' --extensions '.ts'",
     "build:types": "tsc --emitDeclarationOnly --declaration --isolatedModules false --declarationDir lib",
     "coverage": "jest --coverage",
-    "lint": "eslint . --ext .js,.ts,.json --fix --quiet",
-    "lint:ci": "eslint . --ext .js,.ts,.json --quiet",
+    "lint": "yarn lint:ci --fix",
+    "lint:ci": "eslint . --ext .js,.ts,.json",
     "prepack": "yarn build",
     "test": "TZ=UTC jest src",
     "type-check": "tsc --noEmit",
@@ -40,6 +40,10 @@
       "eslint --fix"
     ]
   },
+  "babel": {
+    "extends": "@shelf/babel-config/backend"
+  },
+  "prettier": "@shelf/prettier-config",
   "dependencies": {
     "is-image": "3.0.0",
     "tar": "6.0.5"
@@ -49,9 +53,11 @@
     "@babel/core": "7.18.2",
     "@babel/preset-env": "7.18.2",
     "@babel/preset-typescript": "7.17.12",
+    "@shelf/babel-config": "1.0.1",
     "@shelf/eslint-config": "2.18.0",
+    "@shelf/prettier-config": "1.0.0",
     "@types/jest": "28.1.1",
-    "@types/node": "12",
+    "@types/node": "16",
     "@types/tar": "4.0.3",
     "eslint": "8.17.0",
     "husky": "8.0.1",
@@ -61,7 +67,7 @@
     "typescript": "4.7.3"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=16"
   },
   "publishConfig": {
     "access": "public"
