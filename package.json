@@ -1,6 +1,6 @@
 {
   "name": "@shelf/aws-lambda-tesseract",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "6 MB Tesseract 4.1 (with English training data) to fit inside AWS Lambda",
   "keywords": [
     "aws",
