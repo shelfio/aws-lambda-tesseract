@@ -1,4 +1,5 @@
 import {execSync} from 'child_process';
+// @ts-ignore
 import {getTextFromImage} from './lib';
 
 export function handler(): Promise<string> {
