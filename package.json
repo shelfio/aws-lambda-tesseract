@@ -2,58 +2,35 @@
   "name": "@shelf/aws-lambda-tesseract",
   "version": "3.0.0",
   "description": "6 MB Tesseract 4.1 (with English training data) to fit inside AWS Lambda",
-  "license": "MIT",
-  "repository": "shelfio/aws-lambda-tesseract",
-  "author": {
-    "name": "Vlad Holubiev",
-    "email": "vlad@shelf.io",
-    "url": "shelf.io"
-  },
-  "engines": {
-    "node": ">=12"
-  },
-  "scripts": {
-    "test": "TZ=UTC jest src",
-    "coverage": "jest --coverage",
-    "prepack": "yarn build",
-    "lint": "eslint . --ext .js,.ts,.json --fix --quiet",
-    "lint:ci": "eslint . --ext .js,.ts,.json --quiet",
-    "type-check": "tsc --noEmit",
-    "type-check:watch": "npm run type-check -- --watch",
-    "build": "rm -rf lib/ && yarn build:types && babel src --out-dir lib --ignore '**/*.test.ts' --extensions '.ts'",
-    "build:types": "tsc --emitDeclarationOnly --declaration --isolatedModules false --declarationDir lib"
-  },
-  "files": [
-    "lib",
-    "bin/tt.tar.gz"
-  ],
-  "main": "lib",
-  "types": "lib/index.d.ts",
   "keywords": [
     "aws",
     "lambda",
     "ocr",
     "tesseract"
   ],
-  "dependencies": {
-    "is-image": "3.0.0",
-    "tar": "6.0.5"
+  "repository": "shelfio/aws-lambda-tesseract",
+  "license": "MIT",
+  "author": {
+    "name": "Vlad Holubiev",
+    "email": "vlad@shelf.io",
+    "url": "shelf.io"
   },
-  "devDependencies": {
-    "@babel/cli": "7.10.5",
-    "@babel/core": "7.11.1",
-    "@babel/preset-env": "7.11.0",
-    "@babel/preset-typescript": "7.10.4",
-    "@shelf/eslint-config": "0.20.0",
-    "@types/jest": "26.0.9",
-    "@types/node": "12",
-    "@types/tar": "4.0.3",
-    "eslint": "7.7.0",
-    "husky": "8.0.1",
-    "jest": "26.2.2",
-    "lint-staged": "10.2.11",
-    "prettier": "2.0.5",
-    "typescript": "3.9.7"
+  "main": "lib",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "bin/tt.tar.gz"
+  ],
+  "scripts": {
+    "build": "rm -rf lib/ && yarn build:types && babel src --out-dir lib --ignore '**/*.test.ts' --extensions '.ts'",
+    "build:types": "tsc --emitDeclarationOnly --declaration --isolatedModules false --declarationDir lib",
+    "coverage": "jest --coverage",
+    "lint": "eslint . --ext .js,.ts,.json --fix --quiet",
+    "lint:ci": "eslint . --ext .js,.ts,.json --quiet",
+    "prepack": "yarn build",
+    "test": "TZ=UTC jest src",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch"
   },
   "lint-staged": {
     "*.{html,json,md,yml}": [
@@ -62,6 +39,29 @@
     "*.{ts,js}": [
       "eslint --fix"
     ]
+  },
+  "dependencies": {
+    "is-image": "3.0.0",
+    "tar": "6.0.5"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.17.10",
+    "@babel/core": "7.18.2",
+    "@babel/preset-env": "7.18.2",
+    "@babel/preset-typescript": "7.17.12",
+    "@shelf/eslint-config": "2.18.0",
+    "@types/jest": "28.1.1",
+    "@types/node": "12",
+    "@types/tar": "4.0.3",
+    "eslint": "8.17.0",
+    "husky": "8.0.1",
+    "jest": "28.1.0",
+    "lint-staged": "13.0.0",
+    "prettier": "2.6.2",
+    "typescript": "4.7.3"
+  },
+  "engines": {
+    "node": ">=12"
   },
   "publishConfig": {
     "access": "public"

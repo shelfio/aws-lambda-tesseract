@@ -20,8 +20,8 @@ export async function getTextFromImage(filePath: string): Promise<string> {
     cwd: '/tmp/tesseract-standalone',
     env: {
       LD_LIBRARY_PATH: './lib',
-      TESSDATA_PREFIX: './tessdata'
-    }
+      TESSDATA_PREFIX: './tessdata',
+    },
   });
 
   execSync(`rm ${filePath}`);
@@ -39,10 +39,7 @@ export function isSupportedFile(filePath: string): boolean {
 }
 
 function isUnsupportedFileExtension(filePath: string): boolean {
-  const ext = path
-    .extname(filePath)
-    .slice(1)
-    .toLowerCase();
+  const ext = path.extname(filePath).slice(1).toLowerCase();
 
   return unsupportedExtensions.has(ext);
 }
