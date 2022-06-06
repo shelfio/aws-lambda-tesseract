@@ -13,7 +13,7 @@ yum install -y aclocal autoconf automake cmakegcc freetype-devel gcc gcc-c++ \
 cd ~
 git clone https://github.com/DanBloomberg/leptonica.git
 cd leptonica/
-git checkout 1.78.0
+git checkout 1.78.0 # newer version crashes tesseract build for now. See https://github.com/tesseract-ocr/tesseract/issues/3815
 ./autogen.sh
 ./configure
 make
