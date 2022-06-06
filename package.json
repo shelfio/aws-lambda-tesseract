@@ -46,7 +46,7 @@
   "prettier": "@shelf/prettier-config",
   "dependencies": {
     "is-image": "3.0.0",
-    "tar": "6.0.5"
+    "tar": "6.1.9"
   },
   "devDependencies": {
     "@babel/cli": "7.17.10",
