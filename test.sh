@@ -12,5 +12,5 @@ yarn babel test.ts --out-file test.js
 docker run --rm \
   -v "$PWD":/var/task \
   -p 9000:8080 \
-  public.ecr.aws/lambda/nodejs:16 \
+  public.ecr.aws/lambda/nodejs:16-x86_64 \
   test.handler
