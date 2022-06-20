@@ -56,7 +56,7 @@
     "@shelf/babel-config": "1.0.1",
     "@shelf/eslint-config": "2.18.0",
     "@shelf/prettier-config": "1.0.0",
-    "@types/jest": "28.1.1",
+    "@types/jest": "28.1.2",
     "@types/node": "16",
     "@types/tar": "6.1.1",
     "eslint": "8.18.0",
