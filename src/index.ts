@@ -1,6 +1,6 @@
-import {extract} from 'tar';
 import {execFileSync, execSync} from 'child_process';
 import path from 'path';
+import {extract} from 'tar';
 import isImage from 'is-image';
 
 const unsupportedExtensions = new Set(['ai', 'emf', 'eps', 'gif', 'ico', 'psd', 'svg']);
