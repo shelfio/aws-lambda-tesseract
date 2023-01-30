@@ -1,5 +1,4 @@
 {
-  "extends": ["config:base"],
-  "labels": ["dependencies", "backend"],
-  "ignoreDeps": ["@types/node"]
+  "extends": ["github>shelfio/renovate-config-public"],
+  "labels": ["backend"]
 }
