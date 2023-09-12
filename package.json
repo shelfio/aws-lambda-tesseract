@@ -54,7 +54,7 @@
     "@babel/preset-env": "7.22.15",
     "@babel/preset-typescript": "7.22.15",
     "@shelf/babel-config": "2.0.1",
-    "@shelf/eslint-config": "3.1.0",
+    "@shelf/eslint-config": "3.2.0",
     "@shelf/prettier-config": "1.0.0",
     "@types/jest": "29.5.4",
     "@types/node": "16",
