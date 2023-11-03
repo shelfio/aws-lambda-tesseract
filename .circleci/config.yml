@@ -7,7 +7,7 @@ version: 2.1
 parameters:
   node_version:
     type: string
-    default: '16.15.0'
+    default: '18.18.2'
 
 commands:
   install_deps:
