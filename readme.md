@@ -18,9 +18,11 @@ $ yarn add @shelf/aws-lambda-tesseract
 
 `4.x` works for Node 16.x runtime and compiled with **Tesseract 5.1.0**. It works with x86_64 CPUs for now only.
 
+`5.x` works for Node 18.x runtime and compiled with **Tesseract 5.3.3**. It works with arm64 CPUs.
+
 ## How does it work?
 
-This package contains an archive with [Tesseract 5.1](https://github.com/tesseract-ocr/tesseract) compiled for usage in AWS Lambda environment.
+This package contains an archive with [Tesseract 5.3.3](https://github.com/tesseract-ocr/tesseract) compiled for usage in AWS Lambda environment.
 
 When a Lambda starts, it unpacks an archive with a binary to the `/tmp` folder and makes sure it's done only once per Lambda cold start.
 
