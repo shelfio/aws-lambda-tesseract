@@ -63,4 +63,4 @@ tar -zcvf tesseract.tar.gz tesseract-standalone
 # download from docker to local machine
 # d1c431e8c85e is docker container id, you can look it up by running "docker ps"
 # run this outside of the docker container
-#docker cp d1c431e8c85e:/root/tesseract.tar.gz tt.tar.gz
+docker cp d1c431e8c85e:/root/tesseract.tar.gz tt.tar.gz
