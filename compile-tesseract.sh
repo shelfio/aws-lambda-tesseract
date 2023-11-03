@@ -1,5 +1,5 @@
 # Spin up and enter the docker container on your machine with the following command:
-# docker run -it --entrypoint /bin/bash public.ecr.aws/lambda/nodejs:16-x86_64
+# docker run -it --entrypoint /bin/bash public.ecr.aws/lambda/nodejs:18-arm64
 
 
 # Then run the rest of the commands inside
@@ -23,7 +23,7 @@ make install
 cd ~
 git clone https://github.com/tesseract-ocr/tesseract.git
 cd tesseract
-git checkout 5.1.0
+git checkout 5.3.3
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 ./autogen.sh
 ./configure
@@ -61,6 +61,6 @@ strip ./tesseract-standalone/**/*
 tar -zcvf tesseract.tar.gz tesseract-standalone
 
 # download from docker to local machine
-# 22e97e0774a0 is docker container id, you can look it up by running "docker ps"
+# d1c431e8c85e is docker container id, you can look it up by running "docker ps"
 # run this outside of the docker container
-docker cp 22e97e0774a0:/root/tesseract.tar.gz tt.tar.gz
+#docker cp d1c431e8c85e:/root/tesseract.tar.gz tt.tar.gz
