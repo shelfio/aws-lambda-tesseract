@@ -1,6 +1,6 @@
 {
   "name": "@shelf/aws-lambda-tesseract",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "description": "6 MB Tesseract 4.1 (with English training data) to fit inside AWS Lambda",
   "keywords": [
     "aws",
@@ -22,7 +22,7 @@
     "bin/tt.tar.gz"
   ],
   "scripts": {
-    "build": "rm -rf lib/ && yarn build:types && babel src --out-dir lib --ignore '**/*.test.ts' --extensions '.ts'",
+    "build": "rm -rf lib/ && yarn build:types && node esbuild.js",
     "build:types": "tsc --emitDeclarationOnly --declaration --isolatedModules false --declarationDir lib",
     "coverage": "jest --coverage",
     "lint": "yarn lint:ci --fix",
@@ -40,25 +40,20 @@
       "eslint --fix"
     ]
   },
-  "babel": {
-    "extends": "@shelf/babel-config/backend"
-  },
   "prettier": "@shelf/prettier-config",
   "dependencies": {
     "is-image": "4.0.0",
     "tar": "6.2.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.23.0",
-    "@babel/core": "7.23.2",
-    "@babel/preset-env": "7.23.2",
-    "@babel/preset-typescript": "7.22.15",
-    "@shelf/babel-config": "2.0.2",
     "@shelf/eslint-config": "3.10.0",
     "@shelf/prettier-config": "1.0.0",
+    "@swc/core": "1.3.96",
+    "@swc/jest": "0.2.29",
     "@types/jest": "29.5.8",
     "@types/node": "18",
     "@types/tar": "6.1.7",
+    "esbuild": "0.19.5",
     "eslint": "8.48.0",
     "husky": "8.0.3",
     "jest": "29.7.0",
