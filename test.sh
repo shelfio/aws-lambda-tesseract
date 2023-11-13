@@ -4,8 +4,6 @@ cd bin
 tar -xvzf tt.tar.gz
 cd ..
 
-yarn babel test.ts --out-file test.js
-
 (sleep 5; curl -XPOST "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{"payload":"hello world!"}') &
 
 
