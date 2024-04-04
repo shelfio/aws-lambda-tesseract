@@ -52,7 +52,7 @@
     "@swc/jest": "0.2.36",
     "@types/jest": "29.5.12",
     "@types/node": "18",
-    "@types/tar": "6.1.11",
+    "@types/tar": "6.1.12",
     "esbuild": "0.20.2",
     "eslint": "8.57.0",
     "husky": "9.0.11",
