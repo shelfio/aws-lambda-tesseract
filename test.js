@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const {execSync} = require('child_process');
 const {getTextFromImage} = require('./lib/index.js');
 
@@ -6,5 +7,5 @@ module.exports = {
     execSync(`cp ./test.png /tmp/test.png`);
 
     return getTextFromImage('/tmp/test.png');
-  }
-}
+  },
+};
