@@ -1,5 +1,5 @@
 orbs:
-  node: circleci/node@5.2.0
+  node: circleci/node@7.0.0
   aws-cli: circleci/aws-cli@4.2.3
 
 version: 2.1
@@ -7,7 +7,7 @@ version: 2.1
 parameters:
   node_version:
     type: string
-    default: '18.18.2'
+    default: '22.13.0'
 
 commands:
   install_deps:

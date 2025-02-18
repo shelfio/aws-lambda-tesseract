@@ -51,7 +51,7 @@
     "@swc/core": "1.7.11",
     "@swc/jest": "0.2.36",
     "@types/jest": "29.5.14",
-    "@types/node": "18",
+    "@types/node": "22",
     "@types/tar": "6.1.13",
     "esbuild": "0.23.1",
     "eslint": "9.20.1",
@@ -62,7 +62,7 @@
     "typescript": "5.7.3"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=22"
   },
   "publishConfig": {
     "access": "public"
