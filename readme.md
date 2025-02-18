@@ -20,6 +20,8 @@ $ yarn add @shelf/aws-lambda-tesseract
 
 `5.x` works for Node 18.x runtime and compiled with **Tesseract 5.3.3**. It works with arm64 CPUs.
 
+`6.x` works for Node 22.x runtime and compiled with **Tesseract 5.3.3**. It works with arm64 CPUs.
+
 ## How does it work?
 
 This package contains an archive with [Tesseract 5.3.3](https://github.com/tesseract-ocr/tesseract) compiled for usage in AWS Lambda environment.
