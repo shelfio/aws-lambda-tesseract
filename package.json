@@ -58,5 +58,13 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "lint-staged": {
+    "*.{html,json,md,yml}": [
+      "prettier --write --ignore-path=./.eslintignore"
+    ],
+    "*.{ts,js}": [
+      "eslint --fix"
+    ]
   }
 }
