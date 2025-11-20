@@ -40,8 +40,8 @@
   "devDependencies": {
     "@shelf/eslint-config": "4.2.1",
     "@shelf/prettier-config": "1.0.0",
-    "@swc/core": "1.7.11",
-    "@swc/jest": "0.2.36",
+    "@swc/core": "1.15.3",
+    "@swc/jest": "0.2.39",
     "@types/jest": "29.5.14",
     "@types/node": "22",
     "@types/tar": "6.1.13",
