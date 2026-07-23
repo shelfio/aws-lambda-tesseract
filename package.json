@@ -43,6 +43,7 @@
     "@swc/core": "1.7.11",
     "@swc/jest": "0.2.36",
     "@types/jest": "29.5.14",
+    "@types/minimatch": "5.1.2",
     "@types/node": "22",
     "@types/tar": "6.1.13",
     "esbuild": "0.23.1",
