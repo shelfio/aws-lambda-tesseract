@@ -5,5 +5,4 @@ coverage/
 lib/
 *.log
 .DS_Store
-yarn.lock
 !.husky/_/husky.sh
