@@ -19,8 +19,8 @@ importers:
         specifier: 7.1.0
         version: 7.1.0(@types/eslint@9.6.1)(eslint@10.8.0)(jest@29.7.0(@types/node@22.20.1))(prettier@3.5.3)(typescript@5.8.3)
       '@shelf/prettier-config':
-        specifier: 1.0.0
-        version: 1.0.0
+        specifier: 1.1.1
+        version: 1.1.1
       '@swc/core':
         specifier: 1.7.11
         version: 1.7.11
@@ -630,8 +630,8 @@ packages:
       prettier:
         optional: true
 
-  '@shelf/prettier-config@1.0.0':
-    resolution: {integrity: sha512-XA+bjQ8LlXo/M+rQ13wrN2CgAdwydgxg2crLy8CWq0lxaUgG61Rngvp5DAP7qU4MrOk+WmBYbKzbZVsi58lWCg==}
+  '@shelf/prettier-config@1.1.1':
+    resolution: {integrity: sha512-Oh1fa+nrzMustpHBwyyy3KWGzS3A4/AyqHc5Qmfp8Rp28kjEMCKuIeOrnqHE8XY+zkoYM9kV66NwU4uHsxpDww==}
 
   '@sinclair/typebox@0.27.10':
     resolution: {integrity: sha512-MTBk/3jGLNB2tVxv6uLlFh1iu64iYOQ2PbdOSK3NW8JZsmlaOh2q6sdtKowBhfw8QFLmYNzTW4/oK4uATIi6ZA==}
@@ -3509,7 +3509,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@shelf/prettier-config@1.0.0': {}
+  '@shelf/prettier-config@1.1.1': {}
 
   '@sinclair/typebox@0.27.10': {}
 
