@@ -1,0 +1,5 @@
+allowBuilds:
+  '@swc/core': false
+  esbuild: false
+lockfile: true
+nodeLinker: 'hoisted'
